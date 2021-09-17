@@ -1,0 +1,7 @@
+<ng-container *ngIf="activities$ | async as activity">
+  <div style="border: 1px solid gray">
+    <p style="font-weight: 800;">Last updated:</p>
+    <div>{{ activity.user }}</div>
+    <div>{{ activity.date | date: "short" }}</div>
+  </div>
+</ng-container>

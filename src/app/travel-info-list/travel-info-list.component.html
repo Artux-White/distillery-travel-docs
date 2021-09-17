@@ -1,0 +1,24 @@
+<p-table [value]="travelDocs" responsiveLayout="scroll">
+  <ng-template pTemplate="header">
+      <tr>
+          <th>Name</th>
+          <th>Country</th>
+          <th>Province</th>
+          <th>Available to Travel</th>
+          <th>Passport</th>
+          <th>US Visa</th>
+          <th>Schengen Visa</th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-travelData>
+      <tr>
+          <td>{{travelData.name}}</td>
+          <td>{{travelData.country}}</td>
+          <td>{{travelData.province}}</td>
+          <td>{{travelData.availableToTravel ? 'Yes' : 'No'}} <span *ngIf="travelData.availableToTravel">({{travelData.travelTime}} {{travelData.timeUnit}})</span></td>
+          <td>{{travelData.passport ? 'Yes' : 'No'}} <span *ngIf="travelData.passport && travelData.passportExpireDate">(exp. {{travelData.passportExpireDate.toDate() | date: 'shortDate'}})</span></td>
+          <td>{{travelData.usVisa ? 'Yes' : 'No'}} <span *ngIf="travelData.usVisa && travelData.usVisaExpireDate">(exp. {{travelData.usVisaExpireDate.toDate() | date: 'shortDate'}})</span></td>
+          <td>{{travelData.schengenVisa ? 'Yes' : 'No'}} <span *ngIf="travelData.schengenVisa && travelData.schengenVisaExpireDate">(exp. {{travelData.schengenVisaExpireDate.toDate() | date: 'shortDate'}}</span></td>
+      </tr>
+  </ng-template>
+</p-table>

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "distillery-travel-docs": {
+      "hosting": {
+        "travel-docs": [
+          "distillery-travel-docs"
+        ]
+      }
+    }
+  }
+}

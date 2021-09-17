@@ -1,0 +1,40 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+     >
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="#">Link 1</a>
+      <a mat-list-item href="#">Link 2</a>
+      <a mat-list-item href="#">Link 3</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <img class="logo" src="assets/img/cropped.jpg" width="170px">
+      <span style="color: #686868">Travel Docs</span>
+
+      <span class="spacer"></span>
+
+      <div class="topDivUserPhoto" (click)="userMenu()" mat-button *ngIf="(authService.user | async) as user">
+        <img class="profileIcon" [src]="user.photoURL" /> <a class="user-email">{{user.email}}</a>
+      </div>
+    </mat-toolbar>
+    <app-header></app-header>
+
+    <div style="width: 80%; margin: auto;">
+      <router-outlet></router-outlet>
+    </div>
+    <app-activity></app-activity>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

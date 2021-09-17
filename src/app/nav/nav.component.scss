@@ -1,0 +1,41 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.topDivUserPhoto {
+  margin: 0px 16px;
+  display: inline-block;
+  border: 0;
+  cursor: pointer;
+
+  .profileIcon{
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+}
+
+.user-email{
+  color: #686868;
+  font-size: .8rem;
+}

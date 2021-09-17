@@ -1,0 +1,49 @@
+.main-container {
+  padding: 0 32px;
+}
+
+.header {
+
+}
+
+.header::before {
+  background-color: grey;
+  height: 200px;
+  content: "";
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  position: absolute;
+  right: 50%;
+  width: 100vw;
+}
+
+.title-wrap{
+  display: flex;
+  padding-top: 32px;
+  padding-bottom: 20px;
+  width: fit-content;
+  cursor: pointer;
+  align-items: center;
+
+}
+
+h2{
+  color: #fff;
+  position: relative;
+  margin: 0;
+}
+
+
+.icon-title{
+  font-size: 2.1rem;
+  position: relative;
+  color: white;
+  width: auto;
+  height: auto;
+  margin-right: 5px;
+}
+
+.header-title{
+  flex: 1;
+}

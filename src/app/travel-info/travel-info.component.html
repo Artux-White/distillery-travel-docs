@@ -1,0 +1,127 @@
+<form [formGroup]="travelForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="travel-card">
+    <mat-card-header>
+      <mat-card-title>My Travel Information</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Full Name" formControlName="name">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Country" formControlName="country">
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Province / State" formControlName="province">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label>Available To Travel</label>
+          <mat-radio-group formControlName="availableToTravel">
+            <mat-radio-button [value]="false">No</mat-radio-button>
+            <mat-radio-button [value]="true">Yes</mat-radio-button>
+          </mat-radio-group>
+
+          <ng-container *ngIf="travelForm.controls['availableToTravel'].value">
+            <div class="col">
+              <mat-form-field>
+                <input type="number" matInput placeholder="How Long" formControlName="travelTime">
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-select formControlName="timeUnit">
+                  <mat-option value="days">
+                    days
+                  </mat-option>
+                  <mat-option value="weeks">
+                    weeks
+                  </mat-option>
+                  <mat-option value="months">
+                    months
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label>Passport</label>
+          <mat-radio-group formControlName="passport">
+            <mat-radio-button [value]="false">No</mat-radio-button>
+            <mat-radio-button [value]="true">Yes</mat-radio-button>
+          </mat-radio-group>
+
+          <ng-container *ngIf="travelForm.controls['passport'].value">
+            <mat-form-field appearance="fill">
+              <mat-label>Expire Date</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="passportExpireDate">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </ng-container>
+        </div>
+
+        <div class="col">
+          <label>US Visa</label>
+          <mat-radio-group formControlName="usVisa">
+            <mat-radio-button [value]="false">No</mat-radio-button>
+            <mat-radio-button [value]="true">Yes</mat-radio-button>
+          </mat-radio-group>
+
+          <ng-container *ngIf="travelForm.controls['usVisa'].value">
+            <mat-form-field appearance="fill">
+              <mat-label>Expire Date</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="usVisaExpireDate">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </ng-container>
+        </div>
+
+        <div class="col">
+          <label>Schengen Visa</label>
+          <mat-radio-group formControlName="schengenVisa">
+            <mat-radio-button [value]="false">No</mat-radio-button>
+            <mat-radio-button [value]="true">Yes</mat-radio-button>
+          </mat-radio-group>
+
+          <ng-container *ngIf="travelForm.controls['schengenVisa'].value">
+            <mat-form-field appearance="fill">
+              <mat-label>Expire Date</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="schengenVisaExpireDate">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </ng-container>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Additional comments" formControlName="additionalComments">
+          </mat-form-field>
+        </div>
+      </div>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!travelForm.valid">Submit</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
